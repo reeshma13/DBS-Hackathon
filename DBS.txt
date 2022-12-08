@@ -1,4 +1,4 @@
-UMA code- senior login
+UMA code- senior login, chatbot
 
 <!doctype html>
 <html lang="en">
@@ -110,6 +110,150 @@ UMA code- senior login
    
   </body>
 </html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
+    <script src="chat.js"></script>
+    <title>chat</title>
+  </head>
+  <body>
+
+    <!-- chat open -->
+    <div class="chat-bar-open" id="chat-open">
+      <button
+        id="chat-open-button"
+        type="button"
+        class="collapsible close"
+        onclick="chatOpen()"
+      >
+        <img src="dbs.png" alt="image" />
+      </button>
+    </div>
+
+    <!-- chat close -->
+    <div class="chat-bar-close" id="chat-close">
+      <button
+        id="chat-close-button"
+        type="button"
+        class="collapsible close"
+        onclick="chatClose()"
+      >
+        <i class="material-icons-outlined"> close </i>
+      </button>
+    </div>
+
+    <!-- chat-window 1 -->
+    <div class="chat-window" id="chat-window1">
+      <div class="hi-there">
+        <p class="p1">Hi There</p>
+        <br />
+        <p class="p2">Hello Ask Us Anything!</p>
+      </div>
+      <div class="start-conversation">
+        <h1>Start a Conversation</h1>
+        <br />
+        <button
+          class="new-conversation"
+          type="button"
+          onclick="openConversation()"
+        >
+          <span>New Conversation</span
+          ><i class="material-icons-outlined"> send </i>
+        </button>
+      </div>
+    </div>
+
+    <!-- chat chat-window 2 -->
+    <div class="chat-window2" id="chat-window2">
+      <div class="message-box" id="messageBox">
+        <div class="hi-there">
+          <p class="p1">Hi There</p>
+          <br />
+        </div>
+        <div class="first-chat">
+          <p>Tell me more about your college?</p>
+          <div class="arrow"></div>
+        </div>
+        <div class="second-chat">
+          <div class="circle"></div>
+          <p>Our college has great academics as well as extra curriculars!</p>
+          <div class="arrow"></div>
+        </div>
+      </div>
+      <div class="input-box">
+        <div class="dbs">
+        </div>
+        <div class="write-reply">
+          <input
+            class="inputText"
+            type="text"
+            id="textInput"
+            placeholder="Write a reply..."
+          />
+        </div>
+        <div class="send-button">
+          <button
+            type="submit"
+            class="send-message"
+            id="send"
+            onclick="userResponse()"
+          >
+            <i class="material-icons-outlined"> send </i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+
+function chatOpen() {
+  document.getElementById("chat-open").style.display = "none";
+  document.getElementById("chat-close").style.display = "block";
+  document.getElementById("chat-window1").style.display = "block";
+
+}
+function chatClose() {
+  document.getElementById("chat-open").style.display = "block";
+  document.getElementById("chat-close").style.display = "none";
+  document.getElementById("chat-window1").style.display = "none";
+  document.getElementById("chat-window2").style.display = "none";
+}
+function openConversation() {
+  document.getElementById("chat-window2").style.display = "block";
+  document.getElementById("chat-window1").style.display = "none";
+}
+
+//Gets the text from the input box(user)
+function userResponse() {
+  console.log("response");
+  let userText = document.getElementById("textInput").value;
+
+  if (userText == "") {
+    alert("Please type something!");
+  } else {
+    document.getElementById("messageBox").innerHTML += `<div class="first-chat">
+      <p>${userText}</p>
+      <div class="arrow"></div>
+    </div>`;
+
+    document.getElementById("textInput").value = "";
+    var objDiv = document.getElementById("messageBox");
+    objDiv.scrollTop = objDiv.scrollHeight;
+
+  }
+}
+
 
 
 Sushmitha code - Signup page juniors , home page ,logout
